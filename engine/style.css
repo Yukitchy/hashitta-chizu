@@ -1,0 +1,62 @@
+/* ライト固定・system sans 1系統・アクセント1色。トークンは企画書(proposal-plan/hashitta-chizu)と同じ */
+:root{
+  --bg:#FFFFFF; --fg:#1C1E26; --mute:#5D6170; --line:#DEDCD4;
+  --acc:#1E4FD6; --acc-soft:#E6ECFB; --card:#F6F5F0; --gold:#FFE8C2; --gold-ink:#7A4A00; --bar:#BFC4D6;
+  --sans:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif; color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--card);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.75}
+.app{display:flex;flex-direction:column;height:100dvh;max-width:480px;margin:0 auto;background:var(--bg)}
+.scr{flex:1;min-height:0;overflow-y:auto;padding:calc(14px + env(safe-area-inset-top)) 16px 16px}
+p{margin:0}
+.m-date{font-size:12px;color:var(--mute);line-height:1.5}
+.m-title{font-size:16px;font-weight:800;line-height:1.3;margin-top:2px}
+.dist{display:flex;align-items:baseline;gap:6px;margin-top:8px}
+.dist b{font-size:56px;font-weight:800;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.dist span{font-size:18px;font-weight:700;color:var(--mute)}
+.vals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.vals div{padding:6px 4px;min-width:0;overflow-wrap:anywhere}
+.vals div+div{border-left:1px solid var(--line);padding-left:8px}
+.vals small{display:block;font-size:12px;color:var(--mute);line-height:1.5}
+.vals b{font-size:14px;font-variant-numeric:tabular-nums}
+.delta{margin-top:12px;font-size:13px;font-weight:700;color:var(--acc);line-height:1.4}
+.delta.flat{color:var(--mute)}
+.chart-t{margin-top:14px;font-size:12px;color:var(--mute)}
+.chart{display:block;width:100%;height:auto;margin-top:2px}
+.chart .grid{stroke:var(--line);stroke-width:1}
+.chart .ax{font-size:12px;fill:var(--mute);text-anchor:end}
+.chart .bar{fill:var(--bar)}
+.chart .bar.cur{fill:var(--acc)}
+.chart .val{font-size:12px;font-weight:700;fill:var(--fg);text-anchor:middle}
+.chart .val.cur{fill:var(--acc)}
+.chart .wk{font-size:12px;fill:var(--mute);text-anchor:middle}
+.chart .wk.cur{font-weight:700;fill:var(--fg)}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);background:var(--card);padding-bottom:env(safe-area-inset-bottom)}
+.tabs a{display:block;text-align:center;padding:14px 0 16px;font-size:13px;font-weight:700;color:var(--mute);text-decoration:none}
+.tabs a.on{color:var(--acc);border-top:2px solid var(--acc);margin-top:-1px}
+.tabs a:focus-visible,.react button:focus-visible{outline:2px solid var(--acc);outline-offset:-2px}
+.mapbox{position:relative;margin:8px -16px 0;isolation:isolate}
+.map{width:100%;height:clamp(300px,46dvh,420px);background:var(--card)}
+.map.thumb{height:220px}
+.chip-top{position:absolute;top:10px;right:10px;z-index:1000;background:var(--bg);color:var(--fg);font-size:13px;font-weight:800;padding:3px 10px;border-radius:12px}
+.chip-top span{color:var(--acc);font-variant-numeric:tabular-nums}
+.panel{margin-top:10px}
+.panel .a{font-size:14px;font-weight:800}
+.panel .a b{color:var(--acc);font-variant-numeric:tabular-nums}
+.panel .b{margin-top:2px;font-size:13px;color:var(--mute)}
+.panel .b b{color:var(--fg);font-variant-numeric:tabular-nums}
+.chip-next{display:block;margin-top:8px;padding:8px 10px;background:var(--acc-soft);color:var(--acc);border-radius:10px;font-size:13px;font-weight:700;line-height:1.4}
+.pub{margin-top:8px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg);isolation:isolate}
+.pub-t{padding:10px 12px 8px;font-size:15px;font-weight:800;line-height:1.45}
+.pub-t b{color:var(--acc);font-variant-numeric:tabular-nums}
+.badge{display:inline-block;margin:10px 12px 0;padding:3px 10px;border-radius:12px;background:var(--gold);color:var(--gold-ink);font-size:13px;font-weight:800}
+.cheer{padding:6px 12px 0;font-size:13px;font-weight:800}
+.cheer span{font-variant-numeric:tabular-nums}
+.react{display:flex;flex-wrap:wrap;gap:6px;padding:8px 12px 12px}
+.react button{display:inline-flex;align-items:center;gap:3px;padding:6px 12px;border:0;border-radius:14px;background:var(--card);color:var(--fg);font:inherit;font-size:13px;line-height:1.4;font-variant-numeric:tabular-nums;cursor:pointer}
+.note{margin-top:10px;font-size:12px;color:var(--mute);line-height:1.5}
+/* Leaflet: 地図は彩度を落として道の線を主役にする */
+.leaflet-container{font-family:var(--sans);font-size:12px;background:var(--card)}
+.leaflet-tile-pane{filter:grayscale(.7) opacity(.9)}
+.leaflet-control-attribution{font-size:12px;line-height:1.5}
